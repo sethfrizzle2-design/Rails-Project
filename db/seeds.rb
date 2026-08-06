@@ -10,7 +10,7 @@
 
     form = Form.find_by(name: "Better Test Form")
 
-    20000.times do
+    300.times do
         response = Response.create!(form_name: form.name)
 
         form.questions.each do |q|
@@ -36,6 +36,7 @@
             response.inputs.create!(
                 
                 question_id: q.id,
+                question_words: q.words,
                 answer: answer
             )
         end
