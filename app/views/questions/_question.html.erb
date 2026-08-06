@@ -1,0 +1,61 @@
+
+<% options_target = "options_#{question_form.object.object_id}" %>
+<% row_id = "question_#{question_form.object.object_id}" %>
+
+
+
+<div class="container rounded-3 text-center" style="width:50%; height:200%; background-color: #f5d718" id = "<%= row_id %>">
+
+  <div class="row">
+    <div class="col offset-md-11">
+      <%= link_to "", remove_questions_path(target: row_id), data: {turbo_method: :delete, turbo_stream: true}, class: "btn btn-close" %>
+    </div>
+  </div>
+
+  <div class="p-3 mb-2">  
+
+    
+
+    <div class = "py-1" id = "<%= question_form.object.object_id %>" >
+      <select class="form-select-sm bg-dark text-white" id = "select thing" name="<%= "#{question_form.object_name}[format]" %>" style="width:38%"  required>
+      <option selected>Select a Type</option>
+      <option value="Number">Number</option>
+      <option value="Text">Text</option>
+      <option value="Multiple Choice">Multiple Choice</option>
+      </select>
+
+      <%= question_form.text_field :words, class: "form-control-sm", placeholder: "Enter question", required: true %>
+
+      
+
+    </div>
+
+    <div>
+    
+      
+    </div>
+    
+    <div>
+      <div id = "<%= options_target %>" style = "display: block">
+        <%= fields_for "#{question_form.object_name}[options_attributes][]", Option.new do |option_form| %>
+          
+        <%end%>
+
+        
+      </div>
+
+      <div id = "add_option_<%= question_form.object.object_id %>" style = "display: none">
+      <%= link_to "Add Option", options_path(parent_name: question_form.object_name, target: options_target), data: { turbo_method: :post, turbo_stream: true }, class: "btn btn-dark" %>
+      </div>
+    </div>
+
+    <div>
+      
+      
+      
+    </div>
+
+  </div>
+
+</div>
+<h5></h5>

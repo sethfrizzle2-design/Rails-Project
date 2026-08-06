@@ -1,0 +1,115 @@
+<div class ="container-fluid px-4 py-3">
+
+    <h1>View Responses</h1>
+
+    <div>
+
+        <%= form_with url: response_view_path, method: :get, data: {turbo_frame: "Ask"} do |something| %>
+            <div>
+                <select class = "form-select form-select-sm bg-dark text-white text-wrap" id="Form-ID" name = "<%= "choose2" %>" style = "width:16.4%" onchange = "this.form.requestSubmit()" required>
+                    
+                    <option selected>Select a form</option>
+                    <% @form.each do |f| %>
+                        <option><%= f.name %></option>
+                    <%end%>
+
+                </select>
+
+
+            </div>
+            
+        <%end%>
+
+    </div>
+
+    <%= turbo_frame_tag "Ask" do %>
+        <div>
+
+            
+                <div>
+
+                    <% if @forchoice == nil %>
+
+                    <% elsif @forchoice == "Select a form" %>
+
+                    
+
+                    <% else %>
+                        
+                        <% @pickedform = Form.find_by(name: @forchoice) %>
+                        
+                        <%= form_with url: response_view_path, method: :get, data: {turbo_frame: "Questionaire"} do |ask| %>
+                            <select class = "form-select form-select-sm bg-dark text-white text-wrap" id="Response-ID" name = "<%= "choose" %>" style = "width:16.4%">
+                                <% @response = Response.where(form_name: @pickedform.name) %>
+
+                                <option selected>Select a response</option>
+
+                                <% @response.each do |r| %>
+
+                                    <option><%= r.id %></option>
+
+                                <%end%>
+
+                            </select>
+
+                            <%= ask.hidden_field :choose2, value: @forchoice %>
+
+                            <div><%= ask.submit "Enter", class: "btn-sm btn-dark" %></div>
+
+                        <%end%>
+                        
+                    <%end%>
+                    
+
+
+                </div>
+                
+                
+            
+
+        </div>
+    <%end%>
+    
+    
+    <div>
+        <%= turbo_frame_tag "Questionaire" do %>
+
+            <% if @reschoice != nil %>
+                <% @response = Response.find_by(id: @reschoice, form_name: @forchoice) %>
+                    <% if @response != nil %>
+                        <% @index = 1 %>
+                        <% @response.inputs.each do |i| %>
+                            <div class="container rounded-3 py-4" style="width:25%; height:200%; background-color: #f5d718"> 
+                                <div class = "row">
+                                    <div class = "col">
+                                        Question #<%= @index %>: 
+                                        
+                                    </div>
+                                    <div class = "col text-right" style = "text-align: right">
+                                        <%=  i.answer %>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5></h5>
+                            <% @index = @index + 1 %>
+                        <%end%>
+                        
+
+
+                    <%end%>
+            <%end%>
+        <%end%>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</div>

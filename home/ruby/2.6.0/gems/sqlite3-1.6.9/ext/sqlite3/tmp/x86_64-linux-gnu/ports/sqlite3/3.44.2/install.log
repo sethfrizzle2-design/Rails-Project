@@ -1,0 +1,36 @@
+make[1]: Entering directory '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ext/sqlite3/tmp/x86_64-linux-gnu/ports/sqlite3/3.44.2/sqlite-autoconf-3440200'
+ /usr/bin/mkdir -p '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libsqlite3.la '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib'
+libtool: install: /usr/bin/install -c .libs/libsqlite3.lai /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/libsqlite3.la
+libtool: install: /usr/bin/install -c .libs/libsqlite3.a /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/libsqlite3.a
+libtool: install: chmod 644 /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/libsqlite3.a
+libtool: install: x86_64-linux-gnu-ranlib /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/libsqlite3.a
+libtool: finish: PATH="/home/sfrizzle/.rbenv/versions/2.6.9/bin:/usr/lib/rbenv/libexec:/home/sfrizzle/.rbenv/shims:/home/sfrizzle/.nvm/versions/node/v24.18.0/bin:/home/sfrizzle/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/sfrizzle/.rvm/bin:/home/sfrizzle/.rvm/bin:/sbin" ldconfig -n /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /usr/bin/mkdir -p '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/bin'
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c sqlite3 '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/bin'
+libtool: install: /usr/bin/install -c sqlite3 /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/bin/sqlite3
+ /usr/bin/mkdir -p '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include'
+ /usr/bin/install -c -m 644 sqlite3.h sqlite3ext.h '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include'
+ /usr/bin/mkdir -p '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/share/man/man1'
+ /usr/bin/install -c -m 644 sqlite3.1 '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/share/man/man1'
+ /usr/bin/mkdir -p '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig'
+ /usr/bin/install -c -m 644 sqlite3.pc '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig'
+make[1]: Leaving directory '/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ext/sqlite3/tmp/x86_64-linux-gnu/ports/sqlite3/3.44.2/sqlite-autoconf-3440200'

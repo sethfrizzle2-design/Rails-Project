@@ -1,0 +1,27 @@
+<div class ="container-fluid px-4 py-3">
+  <h1>Make a Bus</h1>
+</div>
+
+  <div class="text-center">
+    <%= form_with model: @bus, url: bus_make_path do |form| %>
+      <div class="mb-3">
+        <label for="bus_id">
+          
+          <%= form.number_field :bus_id, required: true, class: "form-control-sm", placeholder: "Bus ID" %>
+        </label>
+      </div>
+      <div class="mb-3">
+        <label for="location">
+          
+          <%= form.text_field :location, required: true, class: "form-control-sm", placeholder: "Location (City)" %>
+        </label>
+      </div>
+      <div class="mb-3">
+        <label for="route_id">
+          
+          <%= form.number_field :route_id, required: true, class: "form-control-sm", placeholder: "Route ID" %>
+        </label>
+      </div>
+      <%= form.submit "Make", class:"btn btn-dark" %>
+    <% end %>
+  </div>

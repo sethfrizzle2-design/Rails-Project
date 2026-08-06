@@ -1,0 +1,85 @@
+
+<div class ="container-fluid px-4 py-3">
+    <h1>Search Buses</h1>
+</div>
+
+<div>
+    <div class="text-center">
+        <%= form_with url: show_path, method: :get, data: {turbo_frame: "buses"} do |form| %>
+
+            <div class="container py-2">
+
+                <div>
+                    <%= form.text_field :something, class: "form-control-sm", placeholder: "Enter a location" %>
+                    <%= form.submit "Search", class: "btn-sm btn-dark" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<ul>
+    <%= turbo_frame_tag "buses" do %>
+        <% if @choice != nil %> 
+        
+            <div class="container">
+                    
+                        <div class="row g-0">
+                        
+                            <div class="col">
+                                <div class="text-center">
+                                    <div class="border border-warning"> Bus ID </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="text-center">
+                                    <div class="border border-warning"> Location </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="text-center">
+                                    <div class="border border-warning"> Route ID </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+
+
+
+
+
+            <% @buses.each do | bus | %>
+                    <% if @choice.downcase == bus.location.downcase %>
+
+                        <div class="container">
+                        
+                            <div class="row g-0">
+                            
+                                <div class="col">
+                                    <div class="text-center">
+                                        <div class="border bg-light"> <%= bus.bus_id %> </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-center">
+                                        <div class="border bg-light"> <%= bus.location %> </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-center">
+                                        <div class="border bg-light"> <%= bus.route_id %> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    
+                    <% end %>        
+            <% end %>
+        <% end %>
+    <% end %>
+
+
+        
+
+</ul>

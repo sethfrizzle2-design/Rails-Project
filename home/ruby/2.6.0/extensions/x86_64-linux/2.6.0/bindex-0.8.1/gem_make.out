@@ -1,0 +1,15 @@
+current directory: /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/home/sfrizzle/.rbenv/versions/2.6.9/bin/ruby -I /home/sfrizzle/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20260702-53574-4bcpaz.rb extconf.rb
+creating Makefile
+
+current directory: /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20260702-53574-1c6fo8w/skiptrace/internal

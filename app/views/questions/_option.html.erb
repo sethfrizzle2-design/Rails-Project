@@ -1,0 +1,13 @@
+<% option_row_id = "option_#{option_form.object.object_id}" %>
+
+<div id = "<%= option_row_id %>" class = "py-1" style="left-margin:200px">
+  <div class="row justify-content-center">
+    <div class="col offset-md-1">
+      <%= option_form.text_field :answer, class: "form-control-sm", placeholder: "Enter answer", required: true %>
+    </div>
+    <div class="col-1">
+      <%= link_to "", remove_options_path(target: option_row_id), data: {turbo_method: :delete, turbo_stream: true}, class: "btn btn-close" %>
+    </div>
+    
+  </div>
+</div>

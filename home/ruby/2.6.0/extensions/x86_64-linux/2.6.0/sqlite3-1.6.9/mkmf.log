@@ -1,0 +1,604 @@
+"pkg-config --exists /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig/sqlite3.pc"
+| pkg-config --libs /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig/sqlite3.pc
+=> "-lsqlite3\n"
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I.     -std=gnu17 -fPIC conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I.     -std=gnu17 -fPIC conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+| pkg-config --cflags-only-I /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig/sqlite3.pc
+=> "-I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include\n"
+| pkg-config --cflags-only-other /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig/sqlite3.pc
+=> "\n"
+| pkg-config --libs-only-l /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig/sqlite3.pc
+=> "-lsqlite3\n"
+package configuration for /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig/sqlite3.pc
+cflags: 
+ldflags: 
+libs: -lsqlite3
+
+| ["pkg-config", "--libs", "--static", "/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib/pkgconfig/sqlite3.pc"]
+block in append_ldflags: checking for whether -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib is accepted as LDFLAGS... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include     -std=gnu17 -fPIC  conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic      -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+--------------------
+
+block in append_ldflags: checking for whether -lsqlite3 is accepted as LDFLAGS... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include     -std=gnu17 -fPIC  conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib     -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+--------------------
+
+block in append_ldflags: checking for whether -lz is accepted as LDFLAGS... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include     -std=gnu17 -fPIC  conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3     -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lz -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+--------------------
+
+block in append_ldflags: checking for whether -lm is accepted as LDFLAGS... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include     -std=gnu17 -fPIC  conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz     -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lm -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+--------------------
+
+block in append_cppflags: checking for whether -DTAINTING_SUPPORT is accepted as CPPFLAGS... -------------------- yes
+
+"gcc-14 -E -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include     -std=gnu17 -fPIC  -DTAINTING_SUPPORT conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+--------------------
+
+block in append_cflags: checking for whether -fvisibility=hidden is accepted as CFLAGS... -------------------- yes
+
+"gcc-14 -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC   -fvisibility=hidden -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+--------------------
+
+find_header: checking for sqlite3.h... -------------------- yes
+
+"gcc-14 -E -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+/* end */
+
+--------------------
+
+find_library: checking for sqlite3_libversion_number() in -lsqlite3... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm     -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘sqlite3_libversion_number’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return !p; }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm     -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void sqlite3_libversion_number();
+15: int t(void) { sqlite3_libversion_number(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_proc_arity()... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_proc_arity; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_integer_pack()... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_integer_pack; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_initialize()... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘sqlite3_initialize’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return !p; }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void sqlite3_initialize();
+15: int t(void) { sqlite3_initialize(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_backup_init()... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘sqlite3_backup_init’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return !p; }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void sqlite3_backup_init();
+15: int t(void) { sqlite3_backup_init(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_column_database_name()... -------------------- no
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘sqlite3_column_database_name’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return !p; }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+/usr/bin/x86_64-linux-gnu-ld.bfd: /tmp/ccjzFdjL.o: in function `t':
+conftest.c:(.text+0x58): undefined reference to `sqlite3_column_database_name'
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void sqlite3_column_database_name();
+15: int t(void) { sqlite3_column_database_name(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_enable_load_extension()... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘sqlite3_enable_load_extension’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return !p; }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void sqlite3_enable_load_extension();
+15: int t(void) { sqlite3_enable_load_extension(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_load_extension()... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘sqlite3_load_extension’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return !p; }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void sqlite3_load_extension();
+15: int t(void) { sqlite3_load_extension(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_open_v2()... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘sqlite3_open_v2’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return !p; }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void sqlite3_open_v2();
+15: int t(void) { sqlite3_open_v2(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_prepare_v2()... -------------------- yes
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘sqlite3_prepare_v2’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return !p; }
+/* end */
+
+"gcc-14 -o conftest -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden conftest.c  -L. -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/lib -lsqlite3 -lz -lm    -lsqlite3  -lsqlite3 -Wl,-rpath,/home/sfrizzle/.rbenv/versions/2.6.9/lib -L/home/sfrizzle/.rbenv/versions/2.6.9/lib -lruby -lsqlite3  -lsqlite3 -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void sqlite3_prepare_v2();
+15: int t(void) { sqlite3_prepare_v2(); return 0; }
+/* end */
+
+--------------------
+
+have_type: checking for sqlite3_int64 in sqlite3.h... -------------------- yes
+
+"gcc-14 -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+4: 
+5: /*top*/
+6: typedef sqlite3_int64 conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_type: checking for sqlite3_uint64 in sqlite3.h... -------------------- yes
+
+"gcc-14 -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/x86_64-linux -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0/ruby/backward -I/home/sfrizzle/.rbenv/versions/2.6.9/include/ruby-2.6.0 -I. -I/home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/sqlite3-1.6.9/ports/x86_64-linux-gnu/sqlite3/3.44.2/include    -DTAINTING_SUPPORT  -std=gnu17 -fPIC  -fvisibility=hidden   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+4: 
+5: /*top*/
+6: typedef sqlite3_uint64 conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+

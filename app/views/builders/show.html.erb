@@ -1,0 +1,67 @@
+<div class ="container-fluid px-4 py-3">
+
+    <h1>Build Form</h1>
+
+    <div>
+        <label>Enter form name.</label>
+
+        <%= form_with url: build_form_path, method: :get, data: {turbo_frame: "Questionaire"} do |something| %>
+            <%= something.text_field :choose, class: "form-control-sm" %>
+            <%= something.submit "Enter", class: "btn-sm btn-dark" %>
+        <%end%>
+
+    </div>
+
+
+    <div>
+        <%= turbo_frame_tag "Questionaire" do %>
+            <%= form_with do | form | %>
+                <% if @choice != nil %>
+                    <% @form = Form.find_by(name: @choice) %>
+
+                        <% if @form != nil %>
+                            <h2>
+                                <%= @form.name %>
+                            </h2>
+                            
+                            <% @form.questions.each do |q| %>
+
+                                
+                                <div>
+                                    <%= q.words %>
+                                </div>
+
+                                <% if q.format == "Number" %>
+                                    <%= form.number_field :idk, class: "form-control-sm" %>
+                                    
+                                <%end%>
+
+                                <% if q.format == "Text" %>
+                                    <%= form.text_field :idk, class: "form-control-sm" %>
+                                
+                                <%end%>
+
+
+                                <% if q.format == "Multiple Choice" %>
+                                        
+                                    <select style="width: 15%" class = "form-select-sm">
+                                        <option selected>Select an option</option>
+                                        
+                                        <% q.options.each do |o| %>
+                                        
+                                        <option><%= o.answer %></option>
+
+                                        <%end%>
+
+                                        
+                                    </select>      
+
+                                <%end%>
+
+                            <%end%>
+                        <%end%>
+                <%end%>
+            <%end%>
+        <%end%>
+    </div>
+</div>

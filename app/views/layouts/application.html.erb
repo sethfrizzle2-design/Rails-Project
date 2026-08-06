@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+// Source - https://stackoverflow.com/a/67206591
+// Posted by Himaloy Mondal, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-07-09, License - CC BY-SA 4.0
+
+<a href="/" class="btn btn-dark" role="button" data-bs-toggle="button">Home</a>
+<a href="logout" class="btn btn-dark" role="button" data-turbo="false" data-bs-toggle="button">Log Out</a>
+
+-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<html>
+  <head>
+    <title>Betterauth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+
+    
+  </head>
+
+  
+
+  <body>
+
+  
+    <nav class="navbar navbar-light" style="background-color: #f5d718">
+      
+      
+      <div class="container-fluid">
+        
+          <div>
+            <% if user_signed_in? %>
+              <div class="row gx-2">
+                <div class="col-5">
+                  <%= button_to 'Home', root_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                </div>
+                <div class="col-5">
+                  <%= button_to 'Log Out', logout_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                </div>
+              </div>
+
+              
+            <% end %>
+           
+          </div>
+        
+
+        <div>
+          <a class="navbar-brand pe-none" href="#">
+            <%= image_tag("STA_logo.svg", :size => "110x40") %>
+          </a>
+        </div>
+      </div>
+
+    </nav>
+    
+
+
+  
+    
+    <%= yield %>
+
+    <nav class="navbar fixed-bottom navbar-light">
+
+        <%flash.each do |type, message| %>
+          <% if type=alert %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <%= message %>
+              <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% end %>
+
+          <% if type=notice %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <%= message %>
+              <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% end %>
+
+        <% end %>
+    </nav>
+  </body>
+</html>

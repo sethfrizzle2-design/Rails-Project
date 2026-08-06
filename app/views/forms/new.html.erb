@@ -1,0 +1,63 @@
+    <div class = "container-fluid px-4 py-3">   
+        <h1>Make Form</h1>
+
+            <%= form_with model: @form do |form| %>
+                
+                <%= form.text_field :name, class: "form-control-sm", placeholder: "Enter form name", required: true %>
+
+                
+                <div id="questions">
+
+                    <%= fields_for "form[questions_attributes][]", Question.new do |question_form| %>
+                    
+                    <% end %>
+
+                </div>
+                
+
+                <div class="text-center">
+                    <%= link_to "Add Question", questions_path, data: { turbo_method: :post, turbo_stream: true }, class: "btn btn-dark add-question" %>
+
+                    <%= form.submit "Create Form", class: "btn btn-dark submit" %>
+                </div>
+
+            <% end %>
+            
+
+
+            <script>
+
+                    document.addEventListener("change", function(f)
+                    {
+                        if (f.target.id == "select thing")
+                        {
+                            id = f.target.parentElement.id;
+
+                            if (f.target.value == "Multiple Choice")
+                            {
+                                document.getElementById("options_" + id).style.display = "block";
+                                document.getElementById("add_option_" + id).style.display = "block";
+
+                            }
+                            else
+                            {
+                                document.getElementById("options_" + id).replaceChildren();
+                                document.getElementById("options_" + id).style.display = "none";
+                                document.getElementById("add_option_" + id).style.display = "none";
+
+                            }
+                        }
+                        
+
+
+                    });
+
+
+
+
+
+            </script>
+            
+            
+
+    </div>

@@ -1,0 +1,29 @@
+<%= form_with url: login_path, scope: :user do |form| %>
+  
+  <div style="margin-top:90px; margin-left:500px">
+    <h3>Sign In</h3>
+    <div>
+      <div class="mb-3">
+        <label for="email">
+          <div>
+          
+          </div>
+          <%= form.email_field :email, required: true, class: "form-control-sm", placeholder: "Email Address" %>
+        </label>
+      </div>
+      <div class="mb-3">
+        <label for="password">
+          <div>
+          
+          </div>
+          <%= form.password_field :password, required: true, class: "form-control-sm", placeholder: "Password" %>
+        </label>
+      </div>
+      
+        <%= form.submit "Sign In", class: "btn btn-dark", style: "width:26.3%" %>
+      
+    </div>
+  </div>
+<% end %>
+
+

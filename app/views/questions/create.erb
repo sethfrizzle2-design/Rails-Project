@@ -1,0 +1,9 @@
+<%= turbo_stream.append "questions" do %>
+
+  <%= fields_for "form[questions_attributes][]", Question.new do |question_form| %>
+
+    <%= render "question", question_form: question_form %>
+
+  <% end %>
+
+<% end %>

@@ -1,0 +1,18 @@
+<h1>The Bus Rail</h1>
+
+<ul>
+  <li><%= link_to "Home", home_path, method: :get %></li>
+</ul>
+
+<% if user_signed_in? %>
+  <div>
+      <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+  </div>
+
+<% else %>
+  <div>
+    <li><a href="sign_up">Sign up</a></li>
+    <li><a href="login">Log in</a></li>
+  </div>
+
+<% end %>

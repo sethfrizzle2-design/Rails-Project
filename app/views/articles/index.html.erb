@@ -1,0 +1,57 @@
+<div class="container-fluid px-4 py-3">
+  
+  <h1> The Rail</h1>
+
+      <div class = "container" style="width: 75%">
+        <div class = "row text-center">
+
+          <div class = "col">
+            <div class="card mx-auto" style="width: 18rem; background-color: #f5d718">
+                            <div class="card-body">
+                              <h5 class="card-title">Bus Functions</h5>
+                              
+                              <p class="card-text">Return a list of all buses from a given city, or create a new one.</p>
+                              
+                                <div class = "row">
+                                  <div class="col">
+                                    <%= button_to 'Bus Search', bus_search_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                                  </div>
+                                  <div class="col">
+                                    <%= button_to 'Make Bus', bus_make_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+          </div>
+          
+          <div class = "col">
+            <div class="card mx-auto" style="width: 18rem; background-color: #f5d718">
+                            <div class="card-body">
+                              <h5 class="card-title">Form Functions</h5>
+                              
+                              <p class="card-text">Create a new form, respond to one, or see responses.</p>
+                                <div class = "row">
+                                  <div class="col">
+                                    <%= button_to 'Make Form', new_form_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                                  </div>
+                                  <div class="col">
+                                    <%= button_to 'Respond', form_response_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                                  </div>
+                                </div> 
+                                <div class = "row py-4">
+                                  <div class="col">
+                                    <%= button_to 'Responses', response_view_path, method: :get, class: "btn btn-dark", style: "", form: { data: {turbo_frame: "_top"} } %>
+                                  </div>
+                                  <div class="col">
+                                    <h5></h5>
+                                  </div>
+                                </div>         
+                            </div>
+                          </div>
+          </div>
+        </div>
+      </div>
+
+    
+</div>
+

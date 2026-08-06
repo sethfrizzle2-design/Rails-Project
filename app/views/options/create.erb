@@ -1,0 +1,9 @@
+<%= turbo_stream.append @target do %>
+
+  <%= fields_for "#{@parent_name}[options_attributes][]", Option.new do |option_form| %>
+
+    <%= render "questions/option", option_form: option_form %>
+
+  <% end %>
+
+<% end %>

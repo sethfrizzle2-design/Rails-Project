@@ -1,0 +1,121 @@
+<div class = "container-fluid px-4 py-3">
+    <h1> Form Response </h1>
+
+    <div>
+
+        <%= form_with url: form_response_path, method: :get, data: {turbo_frame: "Questionaire"} do |something| %>
+
+
+            
+            <%= something.text_field :choose, class: "form-control-sm", placeholder: "Enter form name" %>
+            <%= something.submit "Enter", class: "btn-sm btn-dark" %>
+        <%end%>
+
+    </div>
+
+    <%= turbo_frame_tag "Questionaire" do %>
+        <%= form_with model: @response, data: {turbo_frame: "_top"} do |response| %>
+            <%if @reschoice != nil%>
+                <% @form = Form.find_by(name: @reschoice) %>
+                    
+                    <%if @form != nil%>
+                        <%= response.hidden_field :form_name, value: @form.name, required: true %>
+
+                        <div class ="container-fluid text-center">
+                            <h2><%= @form.name %></h2>
+
+                            
+
+                        </div>
+
+                            
+
+                        <% @form.questions.each do |q| %>
+
+                            <%= fields_for "response[inputs_attributes][]", Input.new do |input_form| %>
+                               
+                               <div class="container rounded-3" style="width:50%; height:200%; background-color: #f5d718"> 
+                               
+                                <div class ="mx-auto p-2">
+                                    
+                                        <h4><%= q.words %></h4>
+                                    
+                                
+
+                                    </div>
+                                    
+
+                                    
+
+                                    <% if q.format == "Text" %>
+
+                                        <div class ="mx-auto p-2">
+                                            <div class="col">
+                                                <%= input_form.text_field :answer, class: "form-control-sm text-wrap", required: true %>
+                                            </div>
+                                
+
+                                        </div>
+                                    
+                                        
+                                            
+                                    <%end%>
+
+                                    <% if q.format == "Number" %>
+
+                                        <div class ="mx-auto p-2">
+                                    
+                                            <%= input_form.number_field :answer, class: "form-control-sm text-wrap", required: true %>
+                                    
+                                
+
+                                        </div>
+                                    
+                            
+                                            
+                                    <%end%>
+
+                                    <% if q.format == "Multiple Choice" %>
+
+                                        <div class ="mx-auto p-2">
+                                    
+                                            <select class = "form-select form-select-sm bg-dark text-white text-wrap" name="<%= "#{response.object_name}[inputs_attributes][][answer]" %>" style="width: 35%" required>
+                                                <option selected>Select an option</option>
+                                                
+                                                <% q.options.each do |o| %>
+                                                
+                                                <option><%= o.answer %></option>
+
+                                                <%end%>
+
+                                            </select>
+                                    
+                                
+
+                                        </div>
+                                    
+                                        
+                                            
+                                    <%end%>
+
+                                    <%= input_form.hidden_field :question_id, value: q.id, required: true %>
+                                    
+                                </div>
+                                <h3></h3>
+                            <%end%>
+                        <%end%>
+                        <div class=" py-3 text-center">
+                            <%= response.submit "Submit Response", class: "btn-sm btn-dark submit" %>
+                        </div>
+                        
+
+                        
+
+
+                    <%end%>
+            <%end%>
+        <%end%>
+
+
+    <%end%>
+</div>

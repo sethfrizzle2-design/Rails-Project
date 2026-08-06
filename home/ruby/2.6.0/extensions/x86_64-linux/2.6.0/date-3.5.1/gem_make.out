@@ -1,0 +1,22 @@
+current directory: /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/date-3.5.1/ext/date
+/home/sfrizzle/.rbenv/versions/2.6.9/bin/ruby -I /home/sfrizzle/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20260702-53574-5fzmfr.rb extconf.rb
+checking for whether -Wno-compound-token-split-by-macro is accepted as CFLAGS... yes
+checking for rb_category_warn()... no
+checking for timezone in time.h with  -Werror... yes
+checking for altzone in time.h with  -Werror... no
+creating Makefile
+
+current directory: /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/date-3.5.1/ext/date
+make "DESTDIR=" clean
+
+current directory: /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/date-3.5.1/ext/date
+make "DESTDIR="
+compiling date_core.c
+compiling date_parse.c
+compiling date_strftime.c
+compiling date_strptime.c
+linking shared-object date_core.so
+
+current directory: /home/sfrizzle/thing/betterauth/home/ruby/2.6.0/gems/date-3.5.1/ext/date
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 date_core.so ./.gem.20260702-53574-1436mgi
