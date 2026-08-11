@@ -10,7 +10,7 @@
 
     form = Form.find_by(name: "Better Test Form")
 
-    300.times do
+    100.times do
         response = Response.create!(form_name: form.name)
 
         form.questions.each do |q|
@@ -18,9 +18,9 @@
             case q.format
             when "Number"
                 if q.words.include?("dogs")
-                    answer = rand(1..4)
+                    answer = rand(0..3)
                 elsif q.words.include?("jars")
-                    answer = rand(1..10)
+                    answer = rand(5..10)
                 end
             when "Text"
                 if q.words.include?("food")
