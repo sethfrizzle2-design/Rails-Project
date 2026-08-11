@@ -19,6 +19,9 @@ import "channels"
 import "bootstrap"
 import "@hotwired/turbo-rails"
 
+import "chartkick/chart.js"
+
+
 Rails.start()
 //Turbolinks.start()
 ActiveStorage.start()

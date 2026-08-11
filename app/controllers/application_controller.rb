@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     include Authenticated
+    include Pagy::Backend
 
     before_action :require_login
 

@@ -1,10 +1,14 @@
 <div class ="container-fluid px-4 py-3">
 
+
+    
+
     <h1>View Responses</h1>
+    
 
     <div>
 
-        <%= form_with url: response_view_path, method: :get, data: {turbo_frame: "Ask"} do |something| %>
+        <%= form_with url: response_view_path, method: :get, data: {turbo_frame: "Questionaire"} do |something| %>
             <div>
                 <select class = "form-select form-select-sm bg-dark text-white text-wrap" id="Form-ID" name = "<%= "choose2" %>" style = "width:16.4%" onchange = "this.form.requestSubmit()" required>
                     
@@ -21,83 +25,99 @@
         <%end%>
 
     </div>
-
-    <%= turbo_frame_tag "Ask" do %>
-        <div>
-
-            
-                <div>
-
-                    <% if @forchoice == nil %>
-
-                    <% elsif @forchoice == "Select a form" %>
-
-                    
-
-                    <% else %>
-                        
-                        <% @pickedform = Form.find_by(name: @forchoice) %>
-                        
-                        <%= form_with url: response_view_path, method: :get, data: {turbo_frame: "Questionaire"} do |ask| %>
-                            <select class = "form-select form-select-sm bg-dark text-white text-wrap" id="Response-ID" name = "<%= "choose" %>" style = "width:16.4%">
-                                <% @response = Response.where(form_name: @pickedform.name) %>
-
-                                <option selected>Select a response</option>
-
-                                <% @response.each do |r| %>
-
-                                    <option><%= r.id %></option>
-
-                                <%end%>
-
-                            </select>
-
-                            <%= ask.hidden_field :choose2, value: @forchoice %>
-
-                            <div><%= ask.submit "Enter", class: "btn-sm btn-dark" %></div>
-
-                        <%end%>
-                        
-                    <%end%>
-                    
-
-
-                </div>
-                
-                
-            
-
-        </div>
-    <%end%>
     
     
     <div>
         <%= turbo_frame_tag "Questionaire" do %>
 
-            <% if @reschoice != nil %>
-                <% @response = Response.find_by(id: @reschoice, form_name: @forchoice) %>
-                    <% if @response != nil %>
-                        <% @index = 1 %>
-                        <% @response.inputs.each do |i| %>
-                            <div class="container rounded-3 py-4" style="width:25%; height:200%; background-color: #f5d718"> 
-                                <div class = "row">
-                                    <div class = "col">
-                                        Question #<%= @index %>: 
-                                        
-                                    </div>
-                                    <div class = "col text-right" style = "text-align: right">
-                                        <%=  i.answer %>
-                                    </div>
+            <% current_page = params[:page].to_i %>
+            <% current_page = 1 if current_page < 1 %>
+            
+
+            <div class = "container py-3">
+                <% @pickedform = Form.find_by(name: @forchoice) %>
+
+                
+
+                <% if @pickedform != nil %>
+                    
+                    <% current_page = ((Float(Response.where(form_name: @pickedform.name).count)) / 20).ceil() if current_page >= ((Float(Response.where(form_name: @pickedform.name).count)) / 20).ceil() %>
+
+                    <%@response = Response.where(form_name: @pickedform.name).offset((current_page - 1) * 20).limit(20)%>
+
+                    <div class = "row g-0 text-center text-sm" style = "font-size: 12px">
+                    
+                        <% @pickedform.questions.each do |q| %>
+
+                                <div class = "col">
+
+                                    <div class="border border-warning" style = "height: 110%"> <%= q.words %> </div>
+                                    
+                                    
+
                                 </div>
-                            </div>
-                            <h5></h5>
-                            <% @index = @index + 1 %>
+
                         <%end%>
-                        
+
+                    </div>
+
+                    <% @response.each do |r| %>
+                        <div class = "row g-0 text-center text-sm" style = "font-size: 12px">
+
+                            <% r.inputs.each do |i| %>
+                                <div class = "col">
+                                    <div class="border border-warning bg-light" style = "height: 110%" >  <%= i.answer %> </div>
+                                    
+
+                                </div>
 
 
+                            <%end%>
+                            
+                        </div>
                     <%end%>
-            <%end%>
+
+                    <div class = "py-2">
+
+                        <%= link_to "First", request.params.merge(page: 1), class: "btn btn-dark", data: { turbo_frame: "Questionaire" } if current_page > 1 %>
+
+                        <%= link_to "Previous", request.params.merge(page: current_page - 1), class: "btn btn-dark", data: { turbo_frame: "Questionaire" } if current_page > 1 %>
+
+                        <%= link_to "Next", request.params.merge(page: current_page + 1), class: "btn btn-dark", data: { turbo_frame: "Questionaire" } if @response.count == 20 %>
+
+                        <%= link_to "Last", request.params.merge(page: (Float(Response.where(form_name: @pickedform.name).count) / 20).ceil()), class: "btn btn-dark", data: { turbo_frame: "Questionaire" } if @response.count == 20 %>
+
+
+                    </div>
+
+                    <div class = "container text-center">
+
+                        Page <%= current_page %> of <%= ((Float(Response.where(form_name: @pickedform.name).count)) / 20).ceil() %>
+
+                    </div>
+
+                    <div class = "container text-center">
+
+                        <%= form_with url: response_view_path, method: :get, data: {turbo_frame: "Questionaire"} do |form| %>
+
+                            <div>
+                                <%= form.hidden_field :choose2, value: "Better Test Form", required: true %>
+                                <%= form.number_field :page, class: "form-control-sm", placeholder: "Enter page number" %>
+
+                                <%= form.submit "Go", class: "btn-sm btn-dark" %>
+
+
+                            </div>
+                            
+                        <%end%>
+
+                    </div>
+
+                <%end%>
+            </div>
+
+            
+
         <%end%>
 
     </div>

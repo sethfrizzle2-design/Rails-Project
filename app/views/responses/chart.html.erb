@@ -1,0 +1,76 @@
+<div class="container-fluid px-4 py-3">
+
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %><script src = "//www.google.com/jsapi"></script>
+
+    
+
+    
+
+
+    <h1> Response Charts</h1>
+
+    
+    <div class = "row">
+        <div class = "col">
+            <%= pie_chart Input.where(question_words: "What is your favorite color?").group(:answer).count, title: "What is your favorite color?", colors: ["#2B30F0", "#4CF02B", "#F02B2B", "#FFE330"]  %>
+        </div>
+
+        <div class = "col">
+            
+            <%= pie_chart Input.where(question_words: "Who is your favorite Super Mario character?").group(:answer).count, title: "Who is your favorite Super Mario Character?" %>
+        </div>
+
+    </div>
+    
+    <div class = "row">
+        <div class = "col">
+            
+            <%= bar_chart Input.where(question_words: "Do you like pie?").group(:answer).count, title: "Do you like pie?" %>
+        </div>
+
+        <div class = "col">
+            
+            <%= column_chart Input.where(question_words: "How many dogs do you have?").group(:answer).count, title: "How many dogs do you have?" %>
+        </div>
+
+    </div>
+
+    <div class = "row">
+        <div class = "col">
+            
+            <%= column_chart Input.where(question_words: "What is your favorite food?").group(:answer).count, title: "What is your favorite food?" %>
+        </div>
+
+        <div class = "col">
+
+            <%
+                number_order = %w[1 2 3 4 5 6 7 8 9 10]
+
+                ordered_jars = number_order.index_with {|number| Input.where(question_words: "How many jars do you own?").group(:answer).count[number] || 0 }
+            %>
+
+            <%= bar_chart ordered_jars, title: "How many jars do you own?" %>
+        </div>
+
+    </div>
+
+    <div class = "row">
+        <div class = "col">
+
+            <%
+                day_order = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+
+                
+
+                ordered_counts = day_order.index_with { |day| Input.where(question_words: "What is your favorite day of the week?").group(:answer).count[day] || 0 } 
+            %>
+
+            <%= column_chart ordered_counts, title: "What is your favorite day of the week?" %>
+            
+            <!-- <%= column_chart Input.where(question_words: "What is your favorite day of the week?").group(:answer).count, title: "What is your favorite day of the week?" %> -->
+        </div>
+
+    </div>
+    
+
+</div>

@@ -15,8 +15,10 @@
 
     <%= turbo_frame_tag "Questionaire" do %>
         <%= form_with model: @response, data: {turbo_frame: "_top"} do |response| %>
-            <%if @reschoice != nil%>
-                <% @form = Form.find_by(name: @reschoice) %>
+            
+            <%if @choice != nil%>
+                
+                <% @form = Form.find_by(name: @choice) %>
                     
                     <%if @form != nil%>
                         <%= response.hidden_field :form_name, value: @form.name, required: true %>
@@ -99,6 +101,7 @@
                                     <%end%>
 
                                     <%= input_form.hidden_field :question_id, value: q.id, required: true %>
+                                    <%= input_form.hidden_field :question_words, value: q.words, required: true %>
                                     
                                 </div>
                                 <h3></h3>

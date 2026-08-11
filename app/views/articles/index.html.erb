@@ -1,6 +1,5 @@
 <div class="container-fluid px-4 py-3">
-  
-  <h1> The Rail</h1>
+  <h1> Rails</h1>
 
       <div class = "container" style="width: 75%">
         <div class = "row text-center">
@@ -17,7 +16,7 @@
                                     <%= button_to 'Bus Search', bus_search_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
                                   </div>
                                   <div class="col">
-                                    <%= button_to 'Make Bus', bus_make_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                                    <%= button_to 'Make Bus', bus_make_path, method: :get, class: "btn btn-dark", style: "width: 92%", form: { data: {turbo_frame: "_top"} } %>
                                   </div>
                                 </div>
                             </div>
@@ -35,15 +34,15 @@
                                     <%= button_to 'Make Form', new_form_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
                                   </div>
                                   <div class="col">
-                                    <%= button_to 'Respond', form_response_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                                    <%= button_to 'Respond', form_response_path, method: :get, class: "btn btn-dark", style: "width: 92%", form: { data: {turbo_frame: "_top"} } %>
                                   </div>
                                 </div> 
                                 <div class = "row py-4">
                                   <div class="col">
-                                    <%= button_to 'Responses', response_view_path, method: :get, class: "btn btn-dark", style: "", form: { data: {turbo_frame: "_top"} } %>
+                                    <%= button_to 'Responses', response_view_path, method: :get, class: "btn btn-dark", style: "width: 92%", form: { data: {turbo_frame: "_top"} } %>
                                   </div>
                                   <div class="col">
-                                    <h5></h5>
+                                    <%= button_to 'Charts', response_chart_path, method: :get, class: "btn btn-dark", style: "width: 92%", form: { data: {turbo_frame: "_top"} } %>
                                   </div>
                                 </div>         
                             </div>
