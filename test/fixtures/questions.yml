@@ -1,11 +1,28 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  form_id: 1
-  format: MyString
-  words: MyText
+color:
+  form: survey
+  format: Multiple Choice
+  words: What is your favorite color?
 
-two:
-  form_id: 1
-  format: MyString
-  words: MyText
+dogs:
+  form: survey
+  format: Number
+  words: How many dogs do you have?
+
+food:
+  form: survey
+  format: Text
+  words: What is your favorite food?
+
+notes:
+  form: survey
+  format: Text
+  words: Any other notes?
+
+# The question form's type select defaults to this literal string, so questions
+# saved without a type picked are not chartable.
+untyped:
+  form: survey
+  format: Select a Type
+  words: Not a real question

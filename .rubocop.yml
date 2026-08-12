@@ -1,0 +1,68 @@
+AllCops:
+  # Matches the Ruby in .ruby-version / Gemfile. Also caps us at rubocop 1.49.x,
+  # the last release that runs on Ruby 2.6.
+  TargetRubyVersion: 2.6
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - 'home/**/*'          # vendored gem checkout, not our code
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'Rails-Project/**/*'
+    - 'db/*schema.rb'      # auto-generated from the database, regenerated on migrate
+    - 'db/migrate/**/*'
+    - 'db/secondary_migrate/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'        # Rails-generated boilerplate
+    - 'tmp/**/*'
+    - 'log/**/*'
+    - 'storage/**/*'
+    - 'public/**/*'
+
+# This app is indented with 4 spaces, not the community default of 2.
+Layout/IndentationWidth:
+  Width: 4
+
+Layout/IndentationConsistency:
+  # Allow the `private` section to be indented one extra step, which is how
+  # the existing helpers are written.
+  EnforcedStyle: indented_internal_methods
+
+Layout/LineLength:
+  Max: 120
+
+# Indent multi-line hashes/arrays/arguments one step from the start of the line
+# rather than aligning them under an opening parenthesis. Keeps nested chart
+# option hashes readable at 4-space indentation.
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+# The hand-written code in app/ overwhelmingly uses double quotes.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+# Small app, no public API docs to maintain.
+Style/Documentation:
+  Enabled: false
+
+# Ruby 2.6 has no frozen-string-literal default; existing files don't carry the
+# magic comment and adding it everywhere would be churn.
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Rails controllers and helpers are naturally long; we lint for correctness and
+# style here, not for size.
+Metrics:
+  Enabled: false

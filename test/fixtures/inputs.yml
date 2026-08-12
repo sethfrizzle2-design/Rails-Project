@@ -1,7 +1,39 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# Input has no belongs_to :question, so question_id is stamped by hand the way
+# the response form does it. The "notes" question deliberately gets no inputs.
+<%
+  def question_id_for(label)
+    ActiveRecord::FixtureSet.identify(label)
+  end
 
-one:
-  answer: MyString
+  color_answers = %w[Red Red Blue]
 
-two:
-  answer: MyString
+  # Out of numeric order on purpose: "10" must not sort next to "1".
+  dog_answers = %w[10 9 9 2 2 2]
+
+  # Twenty distinct answers with distinct counts, so the top-15 cut is
+  # unambiguous and the dropped five are the least common.
+  food_answers = (1..20).flat_map { |n| Array.new(21 - n, format("Food %02d", n)) }
+%>
+
+<% color_answers.each_with_index do |answer, index| %>
+color_<%= index %>:
+  question_id: <%= question_id_for(:color) %>
+  question_words: What is your favorite color?
+  answer: <%= answer %>
+<% end %>
+
+<% dog_answers.each_with_index do |answer, index| %>
+dogs_<%= index %>:
+  question_id: <%= question_id_for(:dogs) %>
+  question_words: How many dogs do you have?
+  answer: "<%= answer %>"
+<% end %>
+
+<% food_answers.each_with_index do |answer, index| %>
+food_<%= index %>:
+  question_id: <%= question_id_for(:food) %>
+  question_words: What is your favorite food?
+  answer: <%= answer %>
+<% end %>

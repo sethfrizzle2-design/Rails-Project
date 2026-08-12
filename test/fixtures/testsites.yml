@@ -1,4 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# There is no Testsite model, so Rails cannot detect that this table has
+# timestamps and fill them in. Both columns are NOT NULL, so set them by hand.
 
 one:
   pages: MyString
@@ -6,6 +9,8 @@ one:
   two: MyString
   three: MyString
   four: MyString
+  created_at: <%= Time.current.to_s(:db) %>
+  updated_at: <%= Time.current.to_s(:db) %>
 
 two:
   pages: MyString
@@ -13,3 +18,5 @@ two:
   two: MyString
   three: MyString
   four: MyString
+  created_at: <%= Time.current.to_s(:db) %>
+  updated_at: <%= Time.current.to_s(:db) %>

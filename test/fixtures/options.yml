@@ -1,9 +1,20 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# Explicit ids: fixture ids are otherwise hashed from the label, and these
+# options exist to prove that charts follow the author's option order.
 
-one:
-  question_id: 1
-  answer: MyString
+red:
+  id: 1
+  question: color
+  answer: Red
 
-two:
-  question_id: 1
-  answer: MyString
+blue:
+  id: 2
+  question: color
+  answer: Blue
+
+# Deliberately never answered, so the zero-fill has something to prove.
+green:
+  id: 3
+  question: color
+  answer: Green

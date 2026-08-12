@@ -61,6 +61,12 @@ Rails.application.routes.draw do
   get 'response_view', to: 'responses#show', as: :response_view
   post 'response_view', to: 'responses#show'
 
+  get 'response_chart', to: 'responses#chart', as: :response_chart
+  post 'response_chart', to: 'responses#chart'
+
+  get 'questionnaire', to: 'responses#questionnaire', as: :questionnaire
+  post 'questionnaire', to: 'responses#questionnaire'
+
   resources :responses
 
 

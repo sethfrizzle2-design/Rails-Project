@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# Emails must differ: users has a unique index on email.
 
-one:
-  email: MyString
-  password_digest: MyString
+tester:
+  email: tester@example.com
+  password_digest: <%= BCrypt::Password.create("secret123") %>
+  admin: false
 
-two:
-  email: MyString
-  password_digest: MyString
+admin:
+  email: admin@example.com
+  password_digest: <%= BCrypt::Password.create("secret123") %>
+  admin: true

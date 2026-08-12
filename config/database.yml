@@ -24,8 +24,15 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  primary:
+    <<: *default
+    database: db/test.sqlite3
+    migrations_paths: db/migrate
+
+  secondary:
+    <<: *default
+    database: db/buses_test.sqlite3
+    migrations_paths: db/secondary_migrate
 
 production:
   <<: *default
