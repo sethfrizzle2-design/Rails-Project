@@ -1,16 +1,11 @@
 class TestsitesController < ApplicationController
-  def pages
-  end
+    def pages; end
 
-  def one
-  end
+    def one; end
 
-  def two
-  end
+    def two; end
 
-  def three
-  end
+    def three; end
 
-  def four
-  end
+    def four; end
 end

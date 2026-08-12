@@ -3,10 +3,9 @@ class BusesController < ApplicationController
 
     before_action :require_admin, only: [:new]
 
-
     def show
         @buses = Bus.all
-        @choice = params[:something] 
+        @choice = params[:something]
     end
 
     def new
@@ -15,25 +14,22 @@ class BusesController < ApplicationController
 
     def create
         @bus = Bus.new(bus_params)
-        begin 
-            if @bus.save
-                redirect_to root_path, notice: 'Successfully registered!'
-            end
-        rescue
+        begin
+            redirect_to root_path, notice: "Successfully registered!" if @bus.save
+        rescue StandardError
             redirect_to bus_make_path, alert: "Bus ID must be unique."
         end
     end
 
     private
 
-    def bus_params
-        params.require(:bus).permit(:bus_id, :location, :route_id)
-    end
+        def bus_params
+            params.require(:bus).permit(:bus_id, :location, :route_id)
+        end
 
-    def require_admin
-        unless user_admin?
+        def require_admin
+            return if user_admin?
+
             redirect_to root_path, alert: "Admin needed."
         end
-    end
-
 end

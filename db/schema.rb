@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2026_08_06_170842) do
+ActiveRecord::Schema.define(version: 2026_08_12_155413) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2026_08_06_170842) do
     t.integer "response_id"
     t.integer "question_id"
     t.text "question_words"
+    t.index ["question_id", "answer"], name: "index_inputs_on_question_id_and_answer"
   end
 
   create_table "newforms", force: :cascade do |t|
@@ -67,8 +68,11 @@ ActiveRecord::Schema.define(version: 2026_08_06_170842) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-# Could not dump table "responses" because of following StandardError
-#   Unknown type 'String' for column 'form_name'
+  create_table "responses", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "form_name"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false

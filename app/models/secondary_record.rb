@@ -6,5 +6,4 @@ class SecondaryRecord < ApplicationRecord
         reading: :secondary
 
     }
-
 end

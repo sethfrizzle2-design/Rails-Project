@@ -2,407 +2,84 @@
 
     <h1> Response Charts</h1>
 
+    <div>
 
-    <div class = "row py-1">
+        <%= form_with url: response_chart_path, method: :get, data: {turbo_frame: "Charts"} do |picker| %>
 
-        <div id="mario" style="width:100%; height:400px;"></div>
+            <div>
+                <%= select_tag :form_id,
+                        options_from_collection_for_select(@forms, :id, :name, @form&.id),
+                        include_blank: "Select a form",
+                        class: "form-select form-select-sm bg-dark text-white text-wrap",
+                        style: "width:16.4%",
+                        onchange: "this.form.requestSubmit()" %>
+            </div>
 
-    </div>
-
-
-    <div class = "row py-1">
-
-        <div class = "col">
-
-            <div id="pie" style="width:100%; height:400px;"></div>
-
-        </div>
-
-        <div class = "col">
-
-            <div id="color" style="width:100%; height:400px;"></div>
-
-        </div>
+        <%end%>
 
     </div>
 
-     <div class = "row py-1">
 
-        <div id="food" style="width:100%; height:400px;"></div>
+    <div>
+        <%= turbo_frame_tag "Charts" do %>
 
+            <% if @form == nil %>
+
+                <div class = "container py-3 text-muted">Select a form to see its charts.</div>
+
+            <% else %>
+
+                <div class = "container-fluid py-3">
+
+                    <%= form_with url: response_chart_path, method: :get, data: {turbo_frame: "Charts"} do |filter| %>
+
+                        <%= filter.hidden_field :form_id, value: @form.id %>
+                        <%= hidden_field_tag "question_ids[]", "", id: nil %>
+
+                        <div class = "row">
+                            <% @questions.each do |q| %>
+                                <div class = "col-auto form-check">
+                                    <%= check_box_tag "question_ids[]", q.id, @selected_ids.include?(q.id),
+                                            id: "question_#{q.id}", class: "form-check-input",
+                                            onchange: "this.form.requestSubmit()" %>
+                                    <%= label_tag "question_#{q.id}", q.words, class: "form-check-label" %>
+                                </div>
+                            <%end%>
+                        </div>
+
+                    <%end%>
+
+                </div>
+
+                <% if @questions.empty? %>
+
+                    <div class = "container py-3 text-muted">This form has no chartable questions.</div>
+
+                <% elsif @charts.empty? %>
+
+                    <div class = "container py-3 text-muted">No charts selected.</div>
+
+                <%end%>
+
+                <% @charts.each do |chart| %>
+
+                    <div class = "row py-1">
+
+                        <% if chart[:data].empty? %>
+                            <div class = "text-muted"><%= chart[:title] %> &mdash; no responses yet</div>
+                        <% else %>
+                            <%= question_chart_tag(chart) %>
+                        <%end%>
+
+                    </div>
+
+                <%end%>
+
+                <%= chart_script_tag scope: "Charts" %>
+
+            <%end%>
+
+        <%end%>
     </div>
-
-    <div class = "row py-1">
-
-        <div class = "col">
-
-            <div id="jar" style="width:100%; height:400px;"></div>
-
-        </div>
-
-        <div class = "col">
-
-            <div id="dog" style="width:100%; height:400px;"></div>
-
-        </div>
-
-    </div>
-
-    <div class = "row py-1">
-
-        <div id="week" style="width:100%; height:400px;"></div>
-
-    </div>
-    
-
-    
-
-
-
-
-    <div id = "pie_data" data-pie = "<%= @pie_data %>">
-
-    <div id = "mario_data" data-mario = "<%= @mario_data %>">
-
-    <div id = "color_data" data-color = "<%= @color_data %>">
-
-    <div id = "food_data" data-food = "<%= @food_data %>">
-
-    <div id = "jar_data" data-jar = "<%= @jar_data %>">
-
-    <div id = "dog_data" data-dog = "<%= @dog_data %>">
-
-    <div id = "week_data" data-week = "<%= @week_data %>">
-
-
-
-    <script>
-        
-        pie = document.getElementById('pie_data');
-        mario = document.getElementById('mario_data');
-        color = document.getElementById('color_data');
-        food = document.getElementById('food_data');
-        jar = document.getElementById('jar_data');
-        dog = document.getElementById('dog_data');
-        week = document.getElementById('week_data');
-
-        pie_array = JSON.parse(pie.dataset.pie);
-        mario_array = JSON.parse(mario.dataset.mario);
-        color_array = JSON.parse(color.dataset.color);
-        food_array = JSON.parse(food.dataset.food);
-        jar_array = JSON.parse(jar.dataset.jar);
-        dog_array = JSON.parse(dog.dataset.dog);
-        week_array = JSON.parse(week.dataset.week);
-
-        pie_series = [];
-        mario_series = [];
-        color_series = [];
-        food_series = [];
-        jar_series = [];
-        dog_series = [];
-        week_series = [];
-
-        x = 0;
-        while (x < pie_array.length)
-        {
-            pie_series.push({name: pie_array[x][0], data: [pie_array[x][1]]});
-
-            x++;
-        }
-
-        x = 0;
-        while (x < mario_array.length)
-        {
-            mario_series.push({name: mario_array[x][0], data: [mario_array[x][1]]});
-
-            x++;
-        }
-
-        x = 0;
-        while (x < color_array.length)
-        {
-            color_series.push([color_array[x][0], color_array[x][1]]);
-
-            x++;
-        }
-
-        x = 0;
-        while (x < food_array.length)
-        {
-            food_series.push({name: food_array[x][0], data: [food_array[x][1]]});
-
-            x++;
-        }
-
-        x = 0;
-        while (x < jar_array.length)
-        {
-            jar_series.push([jar_array[x][0], jar_array[x][1]]);
-
-            x++;
-        }
-
-        x = 0;
-        while (x < dog_array.length)
-        {
-            dog_series.push({name: dog_array[x][0], data: [dog_array[x][1]]});
-
-            x++;
-        }
-
-        x = 0;
-        while (x < week_array.length)
-        {
-            week_series.push({name: week_array[x][0], data: [week_array[x][1]]});
-
-            x++;
-        }
-        
-
-
-        pie_flavor_chart = Highcharts.chart("pie", {
-            chart: {
-                type: 'bar'
-            },
- 
-            title: {
-                text: 'Do you like pie?'
-            },
- 
-            xAxis: {
-                categories: [" "]
-            },
- 
-            yAxis: {
-                min: 8000,
-                max: 10500,
-
-                title: {
-                    text: 'Number of Responses'
-                }
-            },
- 
-            series: pie_series
-        });
-
-        mario_chart = Highcharts.chart("mario", {
-            chart: {
-                type: 'column'
-            },
-
-            plotOptions: {
-
-                column: {
-                    pointPadding: 0.1,
-                    groupPadding: 0.05
-                }
-
-            },
-
- 
-            title: {
-                text: 'Who is your favorite Super Mario character?'
-            },
- 
-            xAxis: {
-                categories: [" "]
-            },
- 
-            yAxis: {
-                
-
-                title: {
-                    text: 'Number of Responses'
-                }
-            },
- 
-            series: mario_series
-        });
-
-        color_chart = Highcharts.chart("color", {
-            chart: {
-                type: 'pie'
-            },
- 
-            title: {
-                text: 'What is your favorite color?'
-            },
-
-            palette: {
-                    dark: {
-                    colors: ['#2B30F0', '#4CF02B', '#F02B2B', '#FFE330']
-                    }
-                },
- 
-            series: [
-            {
-            name: 'Requests',
-            // We can show multiple data labels per point
-            dataLabels: [
-                {
-                format: '{point.name}'
-                },
-                {
-                format: '{point.percentage:.1f}%',
-                distance: -30,
-                style: {
-                    fontSize: '0.9em',
-                    textOutline: 'none'
-                }
-                }
-            ],
-            data: color_series
-            }]
-            
-
-            
-        });
-
-        food_chart = Highcharts.chart("food", {
-            chart: {
-                type: 'column'
-            },
- 
-            plotOptions: {
-
-                column: {
-                    pointPadding: 0.1,
-                    groupPadding: 0.01
-                }
-
-            },
-
-            title: {
-                text: 'What is your favorite food?'
-            },
- 
-            xAxis: {
-                categories: [" "]
-            },
- 
-            yAxis: {
-                min: 100,
-                max: 420,
-
-                title: {
-                    text: 'Number of Responses'
-                }
-            },
- 
-            series: food_series
-        });
-
-        jar_chart = Highcharts.chart("jar", {
-            chart: {
-                type: 'pie'
-            },
- 
-            title: {
-                text: 'How many jars do you own?'
-            },
-
-            palette: {
-                    
-                },
- 
-            series: [
-            {
-            name: 'Requests',
-            // We can show multiple data labels per point
-            dataLabels: [
-                {
-                format: '{point.name}',
-                },
-                {
-                format: '{point.percentage:.2f}%',
-                distance: -30,
-                style: {
-                    fontSize: '0.9em',
-                    textOutline: 'none'
-                }
-                }
-            ],
-            data: jar_series
-            }]
-            
-
-            
-        });
-
-        dog_chart = Highcharts.chart("dog", {
-            chart: {
-                type: 'column'
-            },
-
-            plotOptions: {
-
-                column: {
-                    pointPadding: 0.1,
-                    groupPadding: 0.05
-                }
-
-            },
-
- 
-            title: {
-                text: 'How many dogs do you have?'
-            },
- 
-            xAxis: {
-                categories: [" "]
-            },
- 
-            yAxis: {
-                
-
-                title: {
-                    text: 'Number of Responses'
-                }
-            },
- 
-            series: dog_series
-        });
-
-        week_chart = Highcharts.chart("week", {
-            chart: {
-                type: 'column'
-            },
-
-            plotOptions: {
-
-                column: {
-                    pointPadding: 0.1,
-                    groupPadding: 0.05
-                }
-
-            },
-
- 
-            title: {
-                text: 'What is your favorite day of the week?'
-            },
- 
-            xAxis: {
-                categories: [" "]
-            },
- 
-            yAxis: {
-                
-
-                title: {
-                    text: 'Number of Responses'
-                }
-            },
- 
-            series: week_series
-        });
-        
-        
-
-    </script>
-
-
-    
-    
 
 </div>

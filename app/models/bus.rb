@@ -1,4 +1,2 @@
 class Bus < SecondaryRecord
-
-
 end
