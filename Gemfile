@@ -68,6 +68,4 @@ gem "faker", "~> 2.22", group: :development
 
 gem "groupdate"
 
-gem "pagy"
-
 gem "chartkick"
