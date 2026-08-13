@@ -8,7 +8,7 @@ class ResponsesController < ApplicationController
     def new
         @response = Response.new
         @response.inputs.build
-        @form
+        @form = Form.distinct.pluck(:name)
         @question = Question.all
         @option = Option.all
         @choice = params[:choose]

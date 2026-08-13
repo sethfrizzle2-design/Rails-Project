@@ -5,10 +5,16 @@
 
         <%= form_with url: form_response_path, method: :get, data: {turbo_frame: "Questionaire"} do |something| %>
 
+            <div class = "container">
 
-            
-            <%= something.text_field :choose, class: "form-control-sm", placeholder: "Enter form name" %>
-            <%= something.submit "Enter", class: "btn-sm btn-dark" %>
+                <%= something.select :choose,
+                        options_for_select(@form),
+                        { include_blank: "Select a form" },
+                        class: "form-select-sm bg-dark text-white text-wrap",
+                        style: "height: 33px" %>
+
+                <%= something.submit "Enter", class: "btn-sm btn-dark" %>
+
         <%end%>
 
     </div>
@@ -81,7 +87,7 @@
 
                                         <div class ="mx-auto p-2">
                                     
-                                            <select class = "form-select form-select-sm bg-dark text-white text-wrap" name="<%= "#{response.object_name}[inputs_attributes][][answer]" %>" style="width: 35%" required>
+                                            <select class = "form-select-sm bg-dark text-white text-wrap" name="<%= "#{response.object_name}[inputs_attributes][][answer]" %>" style="width: 35%" required>
                                                 <option selected>Select an option</option>
                                                 
                                                 <% q.options.each do |o| %>
