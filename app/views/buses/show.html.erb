@@ -11,9 +11,10 @@
 
                 <div>
                     <%= form.select :something,
-                                    options_for_select(@locations, @choice),
-                                    { include_blank: "Select a location" },
-                                    class: "form-select-sm bg-dark text-white text-wrap" %>
+                            options_for_select(@locations, @choice),
+                            { include_blank: "Select a location" },
+                            class: "form-select-sm bg-dark text-white text-wrap",
+                            style: "height: 33px" %>
                     <%= form.submit "Search", class: "btn-sm btn-dark" %>
                 </div>
             </div>

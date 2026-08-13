@@ -23,7 +23,7 @@ class ResponsesController < ApplicationController
     end
 
     def show
-        @form = Form.all
+        @form = Form.order(:name)
         @pickedform
         @response
         @input = Input.all
