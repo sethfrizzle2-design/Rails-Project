@@ -5,7 +5,8 @@ class BusesController < ApplicationController
 
     def show
         @buses = Bus.all
-        @choice = params[:something]
+        @locations = Bus.distinct.pluck(:location).compact_blank.uniq(&:downcase).sort_by(&:downcase)
+        @choice = params[:something].presence
     end
 
     def new

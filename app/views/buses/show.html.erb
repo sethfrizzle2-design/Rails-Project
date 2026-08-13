@@ -10,7 +10,10 @@
             <div class="container py-2">
 
                 <div>
-                    <%= form.text_field :something, class: "form-control-sm", placeholder: "Enter a location" %>
+                    <%= form.select :something,
+                                    options_for_select(@locations, @choice),
+                                    { include_blank: "Select a location" },
+                                    class: "form-select-sm bg-dark text-white text-wrap" %>
                     <%= form.submit "Search", class: "btn-sm btn-dark" %>
                 </div>
             </div>
