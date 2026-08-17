@@ -24,13 +24,12 @@
             
             <%if @choice != nil%>
                 
-                <% @form = Form.find_by(name: @choice) %>
                     
-                    <%if @form != nil%>
-                        <%= response.hidden_field :form_name, value: @form.name, required: true %>
+                    <%if @pickedform != nil%>
+                        <%= response.hidden_field :form_name, value: @pickedform.name, required: true %>
 
                         <div class ="container-fluid text-center">
-                            <h2><%= @form.name %></h2>
+                            <h2><%= @pickedform.name %></h2>
 
                             
 
@@ -38,7 +37,7 @@
 
                             
 
-                        <% @form.questions.each do |q| %>
+                        <% @pickedform.questions.each do |q| %>
 
                             <%= fields_for "response[inputs_attributes][]", Input.new do |input_form| %>
                                

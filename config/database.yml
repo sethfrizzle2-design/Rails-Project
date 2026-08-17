@@ -35,5 +35,11 @@ test:
     migrations_paths: db/secondary_migrate
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  primary:
+    <<: *default
+    database: db/development.sqlite3
+    
+  secondary:
+    <<: *default
+    database: db/buses.sqlite3
+

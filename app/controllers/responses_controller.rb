@@ -9,9 +9,11 @@ class ResponsesController < ApplicationController
         @response = Response.new
         @response.inputs.build
         @form = Form.distinct.pluck(:name)
+        
         @question = Question.all
         @option = Option.all
         @choice = params[:choose]
+        @pickedform = Form.find_by(name: @choice)
     end
 
     def create

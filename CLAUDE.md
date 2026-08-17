@@ -121,6 +121,3 @@ otherwise the whole page loads inside a frame.
   excludes or a todo file.
 - Only `responses_controller_test.rb` and `testsites_controller_test.rb` have real tests; the rest are
   generated stubs.
-
-
-

@@ -5,6 +5,7 @@ class ResponsesControllerTest < ActionDispatch::IntegrationTest
         post login_path, params: { user: { email: users(:tester).email, password: "secret123" } }
     end
 
+
     test "chart renders an empty state until a form is picked" do
         get response_chart_path
 

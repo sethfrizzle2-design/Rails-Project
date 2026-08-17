@@ -69,3 +69,5 @@ gem "faker", "~> 2.22", group: :development
 gem "groupdate"
 
 gem "chartkick"
+
+gem "dockerfile-rails", "~> 1.7"

@@ -1,3 +1,3 @@
 class BusRecord < SecondaryRecord
-    self.table = Bus
+    self.table_name = Bus
 end
