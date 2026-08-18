@@ -49,6 +49,28 @@
                           </div>
           </div>
         </div>
+        <div class = "row text-center py-5">
+          <div class = "col">
+            <div class="card mx-auto" style="width: 18rem; background-color: #f5d718">
+                            <div class="card-body">
+                              <h5 class="card-title">Report Functions</h5>
+                              
+                              <p class="card-text">Create more detailed reports of form responses.</p>
+                              
+                                <div class = "row">
+                                  <div class="col">
+                                    <%= button_to 'Reports', report_path, method: :get, class: "btn btn-dark", form: { data: {turbo_frame: "_top"} } %>
+                                  </div>
+                                  
+                                </div>
+                            </div>
+                          </div>
+          </div>
+          
+          <div class = "col">
+            
+          </div>
+        </div>
       </div>
 
     

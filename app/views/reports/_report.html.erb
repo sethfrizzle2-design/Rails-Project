@@ -1,0 +1,31 @@
+<%# The report itself. Rendered by both the browser page and the PDF, so
+    nothing that belongs to only one of them goes in here. %>
+
+<div class = "container-fluid py-2">
+
+    <div class = "fw-bold">
+
+        <% if report.filtered? %>
+            <%= pluralize(report.total_responses, "response") %>
+            of <%= report.overall_responses %>
+        <% else %>
+            <%= pluralize(report.total_responses, "response") %>
+        <%end%>
+
+    </div>
+
+    <% applied_filters(report).each do |description| %>
+        <div class = "text-muted" style = "font-size:13px"><%= description %></div>
+    <%end%>
+
+</div>
+
+<% if report.sections.empty? %>
+
+    <div class = "container py-3 text-muted">No questions selected.</div>
+
+<%end%>
+
+<% report.sections.each do |section| %>
+    <%= render "section", section: section %>
+<%end%>

@@ -37,3 +37,48 @@ food_<%= index %>:
   question_words: What is your favorite food?
   answer: <%= answer %>
 <% end %>
+
+# The Report Form cohort. These, unlike the survey inputs above, name a
+# response, because the report counts through the response cohort rather than
+# straight off the inputs table.
+#
+#   response | colour | dogs | note
+#   ---------+--------+------+-------
+#   rf_1     | Red    |  2   | Great
+#   rf_2     | Red    | 10   | Great
+#   rf_3     | Blue   |  2   | Fine
+#   rf_4     | Blue   |  2   | (skipped)
+#   rf_5     | Red    |  9   | Great
+
+<%
+  rf_rows = [
+    [:rf_1, "Red",  "2",  "Great"],
+    [:rf_2, "Red",  "10", "Great"],
+    [:rf_3, "Blue", "2",  "Fine"],
+    [:rf_4, "Blue", "2",  nil],
+    [:rf_5, "Red",  "9",  "Great"]
+  ]
+
+  # Literal ids, because those questions carry explicit ids and the label
+  # would resolve to the hashed one instead.
+  rf_questions = { 101 => "Which colour?", 102 => "How many dogs?", 103 => "Anything else?" }
+%>
+
+<% rf_rows.each do |response, *answers| %>
+<% rf_questions.keys.zip(answers).each do |question_id, answer| %>
+<% next if answer.nil? %>
+rf_<%= response %>_<%= question_id %>:
+  response: <%= response %>
+  question_id: <%= question_id %>
+  question_words: <%= rf_questions[question_id] %>
+  answer: "<%= answer %>"
+<% end %>
+<% end %>
+
+# On the Survey form, and carrying a Report Form question id at that. If the
+# cohort is ever scoped by question alone this shows up where it must not.
+rf_intruder:
+  response: other_form
+  question_id: 101
+  question_words: Which colour?
+  answer: Green

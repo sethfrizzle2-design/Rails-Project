@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @report ? "#{@report.form.name} report" : "Report" %></title>
+
+    <%= render "layouts/pdf_styles" %>
+
+    <%# Inlined, not linked: headless Chrome opens this page over file:// and
+        cannot reach the CDN the browser layout uses. %>
+    <script><%= raw inline_highcharts %></script>
+
+    <script>
+      // Chrome captures the page when its virtual clock runs out, so an
+      // animating chart would be caught part-drawn.
+      Highcharts.setOptions({
+        chart: { animation: false },
+        plotOptions: { series: { animation: false } }
+      });
+    </script>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <%# Unscoped, unlike the browser page: there is no turbo frame here, and
+        every chart on the page is meant to draw. %>
+    <%= chart_script_tag %>
+  </body>
+</html>

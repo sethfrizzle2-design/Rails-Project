@@ -14,8 +14,12 @@ RUN gem update --system 3.4.22 --no-document && \
 
 # Install base packages
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 sqlite3 && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 sqlite3 chromium fonts-liberation && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Reports are printed to PDF by headless Chrome, which renders the same
+# Highcharts markup the browser page does. Reports::PdfRenderer reads this.
+ENV CHROME_BIN="/usr/bin/chromium"
 
 # Set production environment
 ENV BUNDLE_DEPLOYMENT="1" \

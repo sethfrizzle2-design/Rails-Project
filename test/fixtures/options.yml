@@ -18,3 +18,22 @@ green:
   id: 3
   question: color
   answer: Green
+
+# question_id rather than the rf_color label, because that question carries an
+# explicit id and the label would resolve to the hashed one instead.
+
+rf_red:
+  id: 11
+  question_id: 101
+  answer: Red
+
+rf_blue:
+  id: 12
+  question_id: 101
+  answer: Blue
+
+# Never picked, so the report has to prove it still zero-fills.
+rf_green:
+  id: 13
+  question_id: 101
+  answer: Green

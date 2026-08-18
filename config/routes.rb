@@ -68,6 +68,10 @@ Rails.application.routes.draw do
 
   resources :responses
 
+  # A report is one thing you look at, in HTML or in PDF. Same action, same
+  # params, same views — only the layout and the renderer differ.
+  resource :report, only: [:show], controller: "reports"
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,48 @@
+<div class="container-fluid px-4 py-3">
+
+    <h1>Response Reports</h1>
+
+    <div>
+
+        <%= form_with url: report_path, method: :get, data: {turbo_frame: "Report"} do |picker| %>
+
+            <div>
+                <%= select_tag :form_id,
+                        options_from_collection_for_select(@forms, :id, :name, @form&.id),
+                        include_blank: "Select a form",
+                        class: "form-select form-select-sm bg-dark text-white text-wrap",
+                        style: "width:16.4%",
+                        onchange: "this.form.requestSubmit()" %>
+            </div>
+
+        <%end%>
+
+    </div>
+
+    <div>
+        <%= turbo_frame_tag "Report" do %>
+
+            <% if @report == nil %>
+
+                Select a form
+
+            <% elsif @report.questions.empty? %>
+
+                <div class = "container py-3 text-muted">This form has no questions that can be reported on.</div>
+
+            <% else %>
+
+                <%= render "filters", report: @report %>
+
+                <%= render "report", report: @report %>
+
+                <%# Scoped to the frame: Turbo re-runs this on every replacement, so an
+                    unscoped selector would redraw charts elsewhere on the page. %>
+                <%= chart_script_tag scope: "Report" %>
+
+            <%end%>
+
+        <%end%>
+    </div>
+
+</div>

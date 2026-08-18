@@ -1,0 +1,80 @@
+<div class = "container-fluid py-3">
+
+    <%= form_with url: report_path, method: :get, data: {turbo_frame: "Report"} do |filter| %>
+
+        <%= filter.hidden_field :form_id, value: report.form.id %>
+
+        <%# Without a blank entry an unchecked list drops out of the query string
+            altogether, which the report reads as "first look, show everything". %>
+        <%= hidden_field_tag "question_ids[]", "", id: nil %>
+
+        <div class = "row">
+
+            <% report.questions.each do |q| %>
+
+                <div class = "col-auto pb-3" style = "max-width:22%">
+
+                    <div class = "form-check">
+                        <%= check_box_tag "question_ids[]", q.id, report.filter.question_selected?(q.id),
+                                id: "question_#{q.id}", class: "form-check-input",
+                                onchange: "this.form.requestSubmit()" %>
+                        <%= label_tag "question_#{q.id}", q.words, class: "form-check-label fw-bold" %>
+                    </div>
+
+                    <%= hidden_field_tag "answers[#{q.id}][]", "", id: nil %>
+
+                    <% choices = report.answer_choices(q) %>
+
+                    <div style = "max-height:11rem; overflow-y:auto; font-size:13px">
+
+                        <% choices.each_with_index do |(answer, count), i| %>
+
+                            <div class = "form-check">
+                                <%= check_box_tag "answers[#{q.id}][]", answer,
+                                        report.filter.answer_selected?(q.id, answer),
+                                        id: "answer_#{q.id}_#{i}", class: "form-check-input",
+                                        onchange: "this.form.requestSubmit()" %>
+                                <%= label_tag "answer_#{q.id}_#{i}",
+                                        "#{answer} (#{count})", class: "form-check-label" %>
+                            </div>
+
+                        <%end%>
+
+                        <% if choices.empty? %>
+                            <div class = "text-muted">No answers yet</div>
+                        <%end%>
+
+                    </div>
+
+                </div>
+
+            <%end%>
+
+            <div class = "col-auto pb-3">
+
+                <div class = "fw-bold">Responses from</div>
+
+                <%= filter.date_field :from, value: report.filter.from,
+                        class: "form-control form-control-sm",
+                        onchange: "this.form.requestSubmit()" %>
+
+                <div class = "fw-bold pt-2">Responses to</div>
+
+                <%= filter.date_field :to, value: report.filter.to,
+                        class: "form-control form-control-sm",
+                        onchange: "this.form.requestSubmit()" %>
+
+            </div>
+
+        </div>
+
+    <%end%>
+
+    <div>
+        <%# data-turbo false because Turbo will not follow a binary response. %>
+        <%= link_to "Download PDF",
+                report_path(report.filter.to_query_params.merge(format: :pdf)),
+                class: "btn btn-sm btn-dark", data: { turbo: false } %>
+    </div>
+
+</div>

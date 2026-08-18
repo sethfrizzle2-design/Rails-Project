@@ -26,3 +26,25 @@ untyped:
   form: survey
   format: Select a Type
   words: Not a real question
+
+# Explicit ids: fixture ids are otherwise hashed from the label, and a report
+# lists its sections in question id order, so the order has to be pinned for
+# the tests to mean anything.
+
+rf_color:
+  id: 101
+  form: report_form
+  format: Multiple Choice
+  words: Which colour?
+
+rf_dogs:
+  id: 102
+  form: report_form
+  format: Number
+  words: How many dogs?
+
+rf_note:
+  id: 103
+  form: report_form
+  format: Text
+  words: Anything else?

@@ -5,3 +5,9 @@ survey:
 
 blank_form:
   name: Blank Form
+
+# A small, fully wired form for the report tests. Unlike the survey fixtures,
+# its inputs hang off real responses, which is what the report's cohort filter
+# needs in order to line answers up across questions.
+report_form:
+  name: Report Form

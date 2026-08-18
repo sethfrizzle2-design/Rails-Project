@@ -1,0 +1,70 @@
+<%# The whole stylesheet for a printed report, kept here rather than in
+    app/assets/stylesheets because that directory is require_tree'd into
+    application.css — these rules would then land on every page in the browser
+    and flatten the Bootstrap grid.
+
+    Headless Chrome opens the report over file:// and can reach no other
+    asset, so this stands alone: no Bootstrap, no imports. The report partials
+    are shared with the browser page and carry Bootstrap class names, so the
+    few that matter in print are redefined. %>
+
+<style>
+    @page {
+        size: Letter;
+        margin: 14mm;
+    }
+
+    body {
+        margin: 0;
+        color: #000;
+        background: #fff;
+        font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+
+    h1 { font-size: 18pt; margin: 0 0 2mm; }
+    h4 { font-size: 12pt; margin: 0 0 1mm; }
+
+    .report-header {
+        border-bottom: 2px solid #000;
+        padding-bottom: 3mm;
+        margin-bottom: 4mm;
+    }
+
+    .report-stamp { color: #555; font-size: 9pt; }
+    .text-muted { color: #555; }
+    .fw-bold { font-weight: bold; }
+
+    .container-fluid { padding: 0; }
+
+    /* The section partial lays a table beside a chart with Bootstrap columns,
+       which do not exist here. Two floated halves give the same shape. */
+    .row { display: block; }
+    .row::after { content: ""; display: block; clear: both; }
+
+    .col-md-5 { float: left; width: 40%; padding-right: 4mm; box-sizing: border-box; }
+    .col-md-7 { float: left; width: 60%; box-sizing: border-box; }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 9pt;
+    }
+
+    th, td {
+        border: 1px solid #999;
+        padding: 1mm 1.5mm;
+        text-align: left;
+    }
+
+    th { background: #eee; }
+
+    .text-end { text-align: right; }
+
+    /* Counts and shares line up in columns, so give the digits equal width. */
+    th.text-end, td.text-end { font-variant-numeric: tabular-nums; }
+
+    .py-2 { padding: 2mm 0; }
+    .py-3 { padding: 3mm 0; }
+</style>

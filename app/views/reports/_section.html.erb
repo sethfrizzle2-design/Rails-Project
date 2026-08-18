@@ -1,0 +1,63 @@
+<%# break-inside keeps a question and its chart on one page in the PDF; it does
+    nothing on screen. %>
+<div class = "container-fluid py-3" style = "break-inside:avoid">
+
+    <h4><%= section.title %></h4>
+
+    <div class = "text-muted" style = "font-size:13px">
+        <%= pluralize(section.answered_count, "response") %> answered<%
+            %><% if section.skipped_count > 0 %>, <%= section.skipped_count %> skipped<%end%>
+    </div>
+
+    <% if section.numeric_summary %>
+        <% summary = section.numeric_summary %>
+        <div class = "text-muted" style = "font-size:13px">
+            Lowest <%= report_summary_number(summary[:min]) %>,
+            highest <%= report_summary_number(summary[:max]) %>,
+            average <%= report_summary_number(summary[:mean]) %>,
+            median <%= report_summary_number(summary[:median]) %><%
+                %><% if summary[:skipped] > 0 %>,
+                <%= pluralize(summary[:skipped], "answer") %> not a number<%end%>
+        </div>
+    <%end%>
+
+    <% if section.answered? %>
+
+        <div class = "row py-2">
+
+            <div class = "col-md-5">
+
+                <table class = "table table-sm table-bordered" style = "font-size:13px">
+                    <thead>
+                        <tr>
+                            <th>Answer</th>
+                            <th class = "text-end">Count</th>
+                            <th class = "text-end">Share</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% section.rows.each do |row| %>
+                            <tr>
+                                <td><%= row.answer %></td>
+                                <td class = "text-end"><%= row.count %></td>
+                                <td class = "text-end"><%= report_percent(row.percent) %></td>
+                            </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class = "col-md-7">
+                <%= question_chart_tag(section.chart) %>
+            </div>
+
+        </div>
+
+    <% else %>
+
+        <div class = "text-muted" style = "font-size:13px">No responses yet</div>
+
+    <%end%>
+
+</div>

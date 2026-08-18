@@ -1,0 +1,12 @@
+<div class = "report-header">
+
+    <h1><%= @report.form.name %></h1>
+
+    <div class = "report-stamp">
+        Generated <%= l(@report.generated_at, format: :long) %>
+    </div>
+
+</div>
+
+<%# The same partial the browser page renders, so the two cannot drift. %>
+<%= render "report", report: @report %>
