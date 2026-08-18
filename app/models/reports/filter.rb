@@ -78,6 +78,7 @@ module Reports
             # in a permit list; permit! is safe here because nothing in the hash
             # is ever assigned to a record, only compared as a string.
             def parse_answers(answers)
+                
                 return {} if answers.blank?
 
                 answers = answers.permit!.to_h if answers.respond_to?(:permit!)

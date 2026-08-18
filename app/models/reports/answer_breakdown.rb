@@ -71,8 +71,6 @@ module Reports
 
             def ordered_rows
                 case format
-                when "Multiple Choice"
-                    multiple_choice_rows
                 when "Number"
                     counts.sort_by { |answer, _count| numeric(answer) || Float::INFINITY }
                 when "Text"
@@ -85,12 +83,17 @@ module Reports
             # The question's own options give the canonical order and keep the
             # options nobody picked. An answer that is no longer one of the
             # options is appended rather than silently dropped.
-            def multiple_choice_rows
-                listed = question.options.map(&:answer)
-                unlisted = counts.keys - listed
 
-                (listed + unlisted).map { |answer| [answer, counts[answer] || 0] }
-            end
+            #def multiple_choice_rows
+            #    listed = question.options.map(&:answer)
+            #    
+            #    unlisted = counts.keys - listed
+
+            #     (listed + unlisted).map { |answer| [answer, counts[answer] || 0] }
+            # end
+
+            # ^ I took out this function because it made the charts show options with 0 picks, which made
+            # them look messy.
 
             def numeric(answer)
                 Float(answer, exception: false)

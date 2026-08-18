@@ -4,8 +4,8 @@
 
         <%= filter.hidden_field :form_id, value: report.form.id %>
 
-        <%# Without a blank entry an unchecked list drops out of the query string
-            altogether, which the report reads as "first look, show everything". %>
+        <!-- Without a blank entry an unchecked list drops out of the query string
+            altogether, which the report reads as "first look, show everything". -->
         <%= hidden_field_tag "question_ids[]", "", id: nil %>
 
         <div class = "row">
